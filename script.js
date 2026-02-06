@@ -103,6 +103,38 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 
+/* CONTACT FORM */
+const form = document.getElementById("contactForm");
+const status = document.getElementById("formStatus");
+
+if (form) {
+    form.addEventListener("submit", async function(e) {
+        e.preventDefault();
+
+        const data = new FormData(form);
+
+        try {
+            const response = await fetch(form.action, {
+                method: form.method,
+                body: data,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
+
+            if (response.ok) {
+                status.innerText = "✅ Message sent successfully!";
+                form.reset();
+            } else {
+                status.innerText = "❌ Failed to send message.";
+            }
+        } catch (err) {
+            status.innerText = "❌ Network error.";
+        }
+    });
+}
+
+
 /* LOADER */
 window.addEventListener("load", () => {
     const loader = document.getElementById("loader");

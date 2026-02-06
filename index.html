@@ -1,8 +1,9 @@
 <!doctype html>
 <html lang="id">
   <head>
+    <link rel="icon" href="Photos/favicon.ico" />
     <meta charset="UTF-8" />
-    <title>Website Saya</title>
+    <title>Bayu | IT Support & Frontend Portfolio</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
@@ -28,13 +29,13 @@
 
     <!-- HERO IMAGE -->
     <section id="home" class="hero-section">
-      <img src="header.png" alt="Header" />
+      <img src="header.png" alt="Header" loading="lazy" />
     </section>
 
     <!-- CONTENT GRID -->
     <main id="works" class="content-grid">
       <div class="card reveal">
-        <img src="Photos/IT1.jpg" alt="Foto Konten" />
+        <img src="Photos/IT1.jpg" alt="Foto Konten" loading="lazy" />
         <h3>🛠️ Keeping Systems Running, Supporting People</h3>
         <p style="text-align: justify">
           I’m an IT Support professional focused on maintaining reliable systems
@@ -48,7 +49,7 @@
         </p>
       </div>
       <div class="card reveal">
-        <img src="Photos/IT2.jpg" alt="Foto Konten" />
+        <img src="Photos/IT2.jpg" alt="Foto Konten" loading="lazy" />
         <h3>🖥️ Reliable IT Support & Infrastructure Assistance</h3>
         <p style="text-align: justify">
           Providing hands-on IT support to ensure systems, networks, and users
@@ -60,7 +61,7 @@
         </p>
       </div>
       <div class="card reveal">
-        <img src="Photos/IT3.jpg" alt="Foto Konten" />
+        <img src="Photos/IT3.jpg" alt="Foto Konten" loading="lazy" />
         <h3>🖧 Server Monitoring & System Maintenance</h3>
         <p style="text-align: justify">
           Monitoring and maintaining servers to ensure optimal performance and
@@ -73,6 +74,35 @@
       </div>
     </main>
     <section id="contact" style="padding: 80px; text-align: center">
+      <h2>Contact Me</h2>
+
+      <form
+        id="contactForm"
+        action="https://formspree.io/f/xykdgakd"
+        method="POST"
+        style="
+          max-width: 400px;
+          margin: 40px auto;
+          display: flex;
+          flex-direction: column;
+          gap: 15px;
+        "
+      >
+        <input type="text" name="name" placeholder="Your Name" required />
+
+        <input type="email" name="email" placeholder="Your Email" required />
+
+        <textarea
+          name="message"
+          placeholder="Your Message"
+          rows="5"
+          required
+        ></textarea>
+
+        <button type="submit">Send Message</button>
+
+        <p id="formStatus"></p>
+      </form>
       <h2>Contact Me</h2>
       <p>Email: your@email.com</p>
       <p>WhatsApp: +62xxxx</p>

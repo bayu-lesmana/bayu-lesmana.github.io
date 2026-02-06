@@ -339,4 +339,25 @@ body.fade-out {
     to { transform: rotate(360deg); }
 }
 
+#contact input,
+#contact textarea {
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+
+#contact button {
+    padding: 12px;
+    border: none;
+    background: dodgerblue;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+#contact button:hover {
+    opacity: 0.8;
+}
+
 
