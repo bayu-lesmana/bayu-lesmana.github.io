@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <title>About Me</title>
+
+    <style>
+      body {
+        margin: 0;
+        font-family: Arial;
+        background: #f5f5f5;
+      }
+
+      .container {
+        max-width: 900px;
+        margin: auto;
+        padding: 40px;
+        text-align: center;
+      }
+
+      .profile img {
+        width: 150px;
+        border-radius: 50%;
+      }
+
+      h1 {
+        margin-top: 20px;
+      }
+
+      .skills {
+        margin-top: 40px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 20px;
+      }
+
+      .skill {
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+      }
+
+      a {
+        display: inline-block;
+        margin-top: 40px;
+        text-decoration: none;
+        background: dodgerblue;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 6px;
+      }
+
+      .reveal {
+        opacity: 0;
+        transform: translateY(40px);
+        transition: 0.8s ease;
+      }
+
+      .reveal.show {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="parallax">
+      <h1 class="typing"></h1>
+    </div>
+    <div class="container">
+      <div class="profile reveal">
+        <img src="header.png" />
+        <h1>Tentang Saya</h1>
+        <p>
+          Saya sedang belajar web development. Ini website latihan pertama saya
+          menggunakan HTML, CSS, dan JavaScript.
+        </p>
+      </div>
+
+      <h2 class="reveal">Yang Sedang Saya Pelajari</h2>
+
+      <div class="skills reveal">
+        <div class="skill">HTML</div>
+        <div class="skill">CSS</div>
+        <div class="skill">JavaScript</div>
+        <div class="skill">Git</div>
+      </div>
+
+      <a href="index.html">⬅ Kembali ke Home</a>
+    </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const reveals = document.querySelectorAll(".reveal");
+
+        function revealOnScroll() {
+          reveals.forEach((el) => {
+            const top = el.getBoundingClientRect().top;
+            const windowHeight = window.innerHeight;
+
+            if (top < windowHeight - 100) {
+              el.classList.add("show");
+            }
+          });
+        }
+
+        window.addEventListener("scroll", revealOnScroll);
+
+        // trigger sekali saat load
+        revealOnScroll();
+      });
+    </script>
+  </body>
+</html>
