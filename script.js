@@ -83,6 +83,32 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
+    /* SWIPE MENU (MOBILE) */
+let touchStartX = 0;
+let touchEndX = 0;
+
+document.addEventListener("touchstart", e => {
+    touchStartX = e.changedTouches[0].screenX;
+});
+
+document.addEventListener("touchend", e => {
+    touchEndX = e.changedTouches[0].screenX;
+    handleSwipe();
+});
+
+function handleSwipe() {
+    // swipe right → buka menu
+    if (touchEndX - touchStartX > 70) {
+        if (navMenu) navMenu.classList.add("show");
+    }
+
+    // swipe left → tutup menu
+    if (touchStartX - touchEndX > 70) {
+        if (navMenu) navMenu.classList.remove("show");
+    }
+}
+
+
     /* PAGE TRANSITION */
     const links = document.querySelectorAll("a");
 
