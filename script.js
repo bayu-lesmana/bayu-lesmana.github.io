@@ -49,12 +49,26 @@ document.querySelectorAll("button, .card, .nav-link").forEach(el => {
         });
     });
 
-    /* DARK MODE */
-    if (darkBtn) {
-        darkBtn.addEventListener("click", () => {
-            document.body.classList.toggle("dark");
-        });
+  /* DARK MODE WITH LOCALSTORAGE */
+if (darkBtn) {
+
+    // Load saved mode
+    if (localStorage.getItem("theme") === "dark") {
+        document.body.classList.add("dark");
     }
+
+    darkBtn.addEventListener("click", () => {
+        document.body.classList.toggle("dark");
+
+        // Save state
+        if (document.body.classList.contains("dark")) {
+            localStorage.setItem("theme", "dark");
+        } else {
+            localStorage.setItem("theme", "light");
+        }
+    });
+}
+
 
     /* BLUR + STAGGER REVEAL */
     const reveals = document.querySelectorAll(".reveal");
@@ -178,6 +192,35 @@ if (form) {
         }
     });
 }
+
+const avatar = document.querySelector(".profile-avatar");
+const tooltip = document.querySelector(".avatar-tooltip");
+
+if (avatar && tooltip) {
+    const text = "Hi, I'm Online Now!";
+    let typing;
+
+    avatar.addEventListener("mouseenter", () => {
+        tooltip.style.opacity = 1;
+        tooltip.textContent = "";
+        let i = 0;
+
+        typing = setInterval(() => {
+            if (i < text.length) {
+                tooltip.textContent += text.charAt(i);
+                i++;
+            } else {
+                clearInterval(typing);
+            }
+        }, 60);
+    });
+
+    avatar.addEventListener("mouseleave", () => {
+        tooltip.style.opacity = 0;
+        clearInterval(typing);
+    });
+}
+
 
 
 /* LOADER */
