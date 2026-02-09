@@ -159,104 +159,98 @@
           max-height: 45vh;
         }
       }
-/* ===== DESKTOP DEFAULT ===== */
+      /* ===== DESKTOP DEFAULT ===== */
 
-.about-wrap {
-    max-width: 900px;
-    margin: auto;
-    padding: 80px 20px;
-}
+      .about-wrap {
+        max-width: 900px;
+        margin: auto;
+        padding: 80px 20px;
+      }
 
-.about-section {
-    margin-bottom: 60px;
-}
+      .about-section {
+        margin-bottom: 60px;
+      }
 
-.about-section h2 {
-    font-size: 26px;
-}
+      .about-section h2 {
+        font-size: 26px;
+      }
 
-.about-section p {
-    font-size: 16px;
-}
+      .about-section p {
+        font-size: 16px;
+      }
 
-/* ===== MOBILE OPTIMIZATION ===== */
+      /* ===== MOBILE OPTIMIZATION ===== */
 
-@media (max-width:768px) {
+      @media (max-width: 768px) {
+        .about-hero img {
+          max-height: 35vh;
+        }
 
-    .about-hero img {
-        max-height: 35vh;
-    }
+        .about-hero h1 {
+          font-size: 22px;
+          padding: 10px 16px;
+        }
 
-    .about-hero h1 {
-        font-size: 22px;
-        padding: 10px 16px;
-    }
+        .profile-avatar {
+          width: 100px;
+          height: 100px;
+          margin: -50px auto 30px;
+        }
 
-    .profile-avatar {
-        width:100px;
-        height:100px;
-        margin:-50px auto 30px;
-    }
+        .about-wrap {
+          padding: 50px 20px;
+        }
 
-    .about-wrap {
-        padding: 50px 20px;
-    }
+        .about-section {
+          margin-bottom: 40px;
+        }
 
-    .about-section {
-        margin-bottom: 40px;
-    }
+        .about-section h2 {
+          font-size: 22px;
+        }
 
-    .about-section h2 {
-        font-size: 22px;
-    }
+        .about-section p {
+          font-size: 15px;
+          line-height: 1.7;
+        }
 
-    .about-section p {
-        font-size: 15px;
-        line-height:1.7;
-    }
+        .avatar-tooltip {
+          font-size: 11px;
+        }
+      }
 
-    .avatar-tooltip {
-        font-size:11px;
-    }
-}
+      /* ===== LARGE DESKTOP ===== */
 
-/* ===== LARGE DESKTOP ===== */
+      @media (min-width: 1200px) {
+        .about-wrap {
+          max-width: 1000px;
+        }
 
-@media (min-width:1200px) {
+        .about-section h2 {
+          font-size: 28px;
+        }
 
-    .about-wrap {
-        max-width: 1000px;
-    }
-
-    .about-section h2 {
-        font-size: 28px;
-    }
-
-    .about-section p {
-        font-size:17px;
-    }
-
-}
-    
+        .about-section p {
+          font-size: 17px;
+        }
+      }
     </style>
   </head>
   <body>
-    <body>
+    <header class="navbar">
+      <div class="logo">Bayu</div>
 
-<header class="navbar">
-  <div class="logo">Bayu</div>
+      <input id="search" type="text" placeholder="Search..." />
 
-  <input id="search" type="text" placeholder="Search..." />
+      <button id="darkBtn">🌙</button>
 
-  <button id="darkBtn">🌙</button>
-
-  <nav>
-    <a href="index.html#home" class="nav-link">Home</a>
-    <a href="about.html" class="nav-link">About</a>
-    <a href="index.html#works" class="nav-link">Works</a>
-    <a href="index.html#contact" class="nav-link">Contact</a>
-  </nav>
-</header>
+      <nav>
+        <a href="index.html#home" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="index.html#works" class="nav-link">Works</a>
+        <a href="index.html#contact" class="nav-link">Contact</a>
+      </nav>
+    </header>
 
     <section class="about-hero">
       <img src="Photos/about-header.png" alt="About Header" />
