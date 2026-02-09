@@ -23,6 +23,25 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
+    /* SCROLL PROGRESS BAR */
+const progress = document.getElementById("progress");
+
+window.addEventListener("scroll", () => {
+    const scrollTop = document.documentElement.scrollTop;
+    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const percent = (scrollTop / height) * 100;
+    if (progress) progress.style.width = percent + "%";
+});
+
+/* HAPTIC FEEDBACK */
+document.querySelectorAll("button, .card, .nav-link").forEach(el => {
+    el.addEventListener("click", () => {
+        if (navigator.vibrate) navigator.vibrate(20);
+    });
+});
+
+
+
     /* CARD CLICK → DETAIL */
     cards.forEach(card => {
         card.addEventListener("click", () => {

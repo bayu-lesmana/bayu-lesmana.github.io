@@ -360,4 +360,28 @@ body.fade-out {
     opacity: 0.8;
 }
 
+/* Mobile tap highlight */
+.card:active {
+    transform: scale(0.97);
+}
+
+.navbar nav a:active {
+    opacity: 0.6;
+}
+
+/* Remove ugly default tap highlight */
+* {
+    -webkit-tap-highlight-color: transparent;
+}
+
+#progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 4px;
+    width: 0%;
+    background: dodgerblue;
+    z-index: 99999;
+}
+
 
