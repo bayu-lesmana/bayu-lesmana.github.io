@@ -1,27 +1,10 @@
 document.addEventListener("DOMContentLoaded", function () {
 
-    const search = document.getElementById("search");
     const cards = document.querySelectorAll(".card");
     const darkBtn = document.getElementById("darkBtn");
-    const navbar = document.querySelector(".navbar");
-    const burger = document.getElementById("burger");
-    const navMenu = document.querySelector(".navbar nav");
     const heroImg = document.querySelector(".hero-section img");
     const cursor = document.getElementById("cursor");
 
-    /* SEARCH FILTER */
-    if (search) {
-        search.addEventListener("keyup", function () {
-            const keyword = search.value.toLowerCase();
-
-            cards.forEach(card => {
-                const text = card.innerText.toLowerCase();
-                card.style.visibility = text.includes(keyword) ? "visible" : "hidden";
-                card.style.height = text.includes(keyword) ? "auto" : "0";
-                card.style.margin = text.includes(keyword) ? "" : "0";
-            });
-        });
-    }
 
     /* SCROLL PROGRESS BAR */
 const progress = document.getElementById("progress");
@@ -33,41 +16,12 @@ window.addEventListener("scroll", () => {
     if (progress) progress.style.width = percent + "%";
 });
 
-/* HAPTIC FEEDBACK */
-document.querySelectorAll("button, .card, .nav-link").forEach(el => {
-    el.addEventListener("click", () => {
-        if (navigator.vibrate) navigator.vibrate(20);
-    });
-});
-
-
-
     /* CARD CLICK → DETAIL */
     cards.forEach(card => {
         card.addEventListener("click", () => {
             window.location.href = "detail.html";
         });
     });
-
-  /* DARK MODE WITH LOCALSTORAGE */
-if (darkBtn) {
-
-    // Load saved mode
-    if (localStorage.getItem("theme") === "dark") {
-        document.body.classList.add("dark");
-    }
-
-    darkBtn.addEventListener("click", () => {
-        document.body.classList.toggle("dark");
-
-        // Save state
-        if (document.body.classList.contains("dark")) {
-            localStorage.setItem("theme", "dark");
-        } else {
-            localStorage.setItem("theme", "light");
-        }
-    });
-}
 
 
     /* BLUR + STAGGER REVEAL */
@@ -92,22 +46,6 @@ if (darkBtn) {
         }
     });
 
-    /* FLOATING NAVBAR */
-    window.addEventListener("scroll", () => {
-        if (window.scrollY > 100) {
-            navbar.classList.add("floating");
-        } else {
-            navbar.classList.remove("floating");
-        }
-    });
-
-    /* HAMBURGER MENU */
-    if (burger) {
-        burger.addEventListener("click", () => {
-            navMenu.classList.toggle("show");
-        });
-    }
-
     /* CURSOR FOLLOW GLOW */
     if (cursor) {
         document.addEventListener("mousemove", e => {
@@ -115,32 +53,6 @@ if (darkBtn) {
             cursor.style.top = e.clientY + "px";
         });
     }
-
-    /* SWIPE MENU (MOBILE) */
-let touchStartX = 0;
-let touchEndX = 0;
-
-document.addEventListener("touchstart", e => {
-    touchStartX = e.changedTouches[0].screenX;
-});
-
-document.addEventListener("touchend", e => {
-    touchEndX = e.changedTouches[0].screenX;
-    handleSwipe();
-});
-
-function handleSwipe() {
-    // swipe right → buka menu
-    if (touchEndX - touchStartX > 70) {
-        if (navMenu) navMenu.classList.add("show");
-    }
-
-    // swipe left → tutup menu
-    if (touchStartX - touchEndX > 70) {
-        if (navMenu) navMenu.classList.remove("show");
-    }
-}
-
 
     /* PAGE TRANSITION */
     const links = document.querySelectorAll("a");
@@ -193,35 +105,6 @@ if (form) {
     });
 }
 
-const avatar = document.querySelector(".profile-avatar");
-const tooltip = document.querySelector(".avatar-tooltip");
-
-if (avatar && tooltip) {
-    const text = "Hi, I'm Online Now!";
-    let typing;
-
-    avatar.addEventListener("mouseenter", () => {
-        tooltip.style.opacity = 1;
-        tooltip.textContent = "";
-        let i = 0;
-
-        typing = setInterval(() => {
-            if (i < text.length) {
-                tooltip.textContent += text.charAt(i);
-                i++;
-            } else {
-                clearInterval(typing);
-            }
-        }, 60);
-    });
-
-    avatar.addEventListener("mouseleave", () => {
-        tooltip.style.opacity = 0;
-        clearInterval(typing);
-    });
-}
-
-
 
 /* LOADER */
 window.addEventListener("load", () => {
@@ -229,3 +112,162 @@ window.addEventListener("load", () => {
     if (loader) loader.style.display = "none";
 });
 
+/* ================= APPLE NAVBAR + SEARCH + DARK MODE ================= */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+  const searchIcon = document.getElementById("searchIcon");
+  const overlay = document.getElementById("searchOverlay");
+  const appleNav = document.querySelector(".apple-navbar");
+  const darkBtn = document.getElementById("darkBtn");
+
+  /* SEARCH */
+  if (searchIcon && overlay) {
+    searchIcon.addEventListener("click", () => {
+      overlay.classList.toggle("active");
+    });
+
+    document.addEventListener("keydown", e => {
+      if (e.key === "Escape") overlay.classList.remove("active");
+    });
+
+    overlay.addEventListener("click", e => {
+      if (e.target === overlay) overlay.classList.remove("active");
+    });
+  }
+
+  /* NAVBAR FLOAT */
+  if (appleNav) {
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 80) {
+        appleNav.classList.add("scrolled");
+      } else {
+        appleNav.classList.remove("scrolled");
+      }
+    });
+  }
+
+  /* DARK MODE */
+  if (darkBtn) {
+
+    if (localStorage.getItem("theme") === "dark") {
+      document.body.classList.add("dark");
+      darkBtn.textContent = "☀️";
+    }
+
+    darkBtn.addEventListener("click", () => {
+      document.body.classList.toggle("dark");
+
+      if (document.body.classList.contains("dark")) {
+        localStorage.setItem("theme", "dark");
+        darkBtn.textContent = "☀️";
+      } else {
+        localStorage.setItem("theme", "light");
+        darkBtn.textContent = "🌙";
+      }
+    });
+  }
+
+});
+
+/* ================= GLOBAL SEARCH (INDEX + ABOUT) ================= */
+
+const appleSearchInput = document.getElementById("appleSearchInput");
+
+/* semua elemen yang bisa dicari */
+const searchable = document.querySelectorAll(
+  ".card, p, h1, h2, h3, section"
+);
+
+if (appleSearchInput && searchable.length) {
+  appleSearchInput.addEventListener("input", () => {
+    const keyword = appleSearchInput.value.toLowerCase();
+
+    searchable.forEach(el => {
+      const text = el.innerText.toLowerCase();
+
+      if (text.includes(keyword)) {
+        el.style.display = "";
+      } else {
+        el.style.display = "none";
+      }
+    });
+  });
+}
+
+/* ================= AVATAR TYPING TOOLTIP ================= */
+
+const avatar = document.querySelector(".avatar-img");
+const tooltip = document.querySelector(".avatar-tooltip");
+
+if (avatar && tooltip) {
+  const text = "Hi, I'm Online Now!";
+  let typing;
+
+  avatar.addEventListener("mouseenter", () => {
+    tooltip.style.opacity = 1;
+    tooltip.textContent = "";
+    let i = 0;
+
+    typing = setInterval(() => {
+      if (i < text.length) {
+        tooltip.textContent += text.charAt(i);
+        i++;
+      } else {
+        clearInterval(typing);
+      }
+    }, 60);
+  });
+
+  avatar.addEventListener("mouseleave", () => {
+    tooltip.style.opacity = 0;
+    clearInterval(typing);
+  });
+}
+
+/* ================= GLOBAL FLOATING AVATAR ================= */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+  if (!document.querySelector(".avatar-wrap")) {
+
+    const avatarWrap = document.createElement("div");
+    avatarWrap.className = "avatar-wrap";
+
+    avatarWrap.innerHTML = `
+      <img src="Photos/avatar.png" class="avatar-img" alt="avatar">
+      <div class="avatar-tooltip"></div>
+    `;
+
+    document.body.appendChild(avatarWrap);
+
+    const avatar = avatarWrap.querySelector(".avatar-img");
+    const tooltip = avatarWrap.querySelector(".avatar-tooltip");
+
+    if (avatar && tooltip) {
+      const text = "Hi, I'm Online Now!";
+      let typing;
+
+      avatar.addEventListener("mouseenter", () => {
+        tooltip.style.opacity = 1;
+        tooltip.textContent = "";
+        let i = 0;
+
+        typing = setInterval(() => {
+          if (i < text.length) {
+            tooltip.textContent += text.charAt(i);
+            i++;
+          } else {
+            clearInterval(typing);
+          }
+        }, 60);
+      });
+
+      avatar.addEventListener("mouseleave", () => {
+        tooltip.style.opacity = 0;
+        clearInterval(typing);
+      });
+    }
+  }
+
+});

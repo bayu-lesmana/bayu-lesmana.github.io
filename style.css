@@ -5,31 +5,22 @@
     box-sizing: border-box;
 }
 
-/* NAVBAR */
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    padding: 20px 40px;
-    background: white;
-    border-bottom: 1px solid #ddd;
-    font-family: Arial, sans-serif;
-    position: sticky;
-    top: 0;
-    z-index: 10;
-}
-
-.navbar nav a {
-    margin-left: 20px;
-    text-decoration: none;
-    color: #333;
-    font-weight: bold;
-}
 
 /* HERO */
 .hero-section img {
     width: 100%;
     height: auto;
 }
+
+.hero-section {
+    overflow: hidden;
+}
+
+.hero-section img {
+    transform: translateY(0);
+    transition: transform 0.1s linear;
+}
+
 
 /* GRID CONTENT */
 .content-grid {
@@ -58,10 +49,15 @@
 }
 
 .card p {
-    padding: 0 10px 10px;
-    color: #555;
+  padding: 0 10px 10px;
+  color: #555;
 }
 
+
+.hero-section img {
+    transform: translateY(0);
+    transition: transform 0.1s linear;
+}
 
 @media (max-width: 768px) {
 
@@ -76,41 +72,6 @@
         grid-template-columns: 1fr;
     }
 
-}
-
-#search {
-    padding: 8px 12px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-#darkBtn {
-    padding: 6px 10px;
-    border: none;
-    background: #222;
-    color: white;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-/* DARK MODE */
-body.dark {
-    background: #121212;
-    color: white;
-}
-
-body.dark .navbar {
-    background: #1e1e1e;
-    border-bottom: 1px solid #333;
-}
-
-body.dark .card {
-    background: #1e1e1e;
-    border-color: #333;
-}
-
-body.dark a {
-    color: white;
 }
 
 
@@ -145,234 +106,8 @@ html {
     scroll-behavior: smooth;
 }
 
-.nav-link.active {
-    color: dodgerblue;
-    border-bottom: 2px solid dodgerblue;
-}
 
-body {
-    opacity: 1;
-    transition: opacity 0.4s ease;
-}
-
-body.fade-out {
-    opacity: 0;
-}
-
-.navbar nav a {
-    padding-bottom: 5px;
-}
-
-.hero-section {
-    overflow: hidden;
-}
-
-.hero-section img {
-    transform: translateY(0);
-    transition: transform 0.1s linear;
-}
-
-#loader {
-    position: fixed;
-    inset: 0;
-    background: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-}
-
-.spinner {
-    width: 40px;
-    height: 40px;
-    border: 4px solid #ddd;
-    border-top: 4px solid dodgerblue;
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-    to { transform: rotate(360deg); }
-}
-
-.navbar nav a {
-    transition: transform 0.25s ease, color 0.25s ease;
-    display: inline-block;
-}
-
-.navbar nav a:hover {
-    transform: scale(1.15);
-    color: dodgerblue;
-}
-
-.navbar nav a {
-    position: relative;
-    display: inline-block;
-    transition: transform 0.25s ease, color 0.25s ease;
-}
-
-/* Zoom + color */
-.navbar nav a:hover {
-    transform: scale(1.15);
-    color: dodgerblue;
-}
-
-/* Underline animation */
-.navbar nav a::after {
-    content: "";
-    position: absolute;
-    left: 50%;
-    bottom: -6px;
-    width: 0;
-    height: 2px;
-    background: dodgerblue;
-    transition: 0.3s ease;
-    transform: translateX(-50%);
-}
-
-.navbar nav a:hover::after {
-    width: 100%;
-}
-
-/* Glow effect */
-.navbar nav a:hover {
-    text-shadow: 0 0 8px rgba(30,144,255,0.6);
-}
-
-/* Active tetap */
-.nav-link.active {
-    color: dodgerblue;
-}
-
-.nav-link.active::after {
-    width: 100%;
-}
-
-.navbar {
-    background: linear-gradient(270deg, #1e90ff, #6a5acd, #00bcd4);
-    background-size: 600% 600%;
-    animation: gradientMove 12s ease infinite;
-}
-
-@keyframes gradientMove {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
-
-.navbar nav a {
-    color: white;
-}
-
-.navbar nav a:hover {
-    color: white;
-}
-
-.navbar.floating {
-    position: fixed;
-    top: 15px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 90%;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0,0,0,.2);
-    transition: 0.4s ease;
-}
-
-#burger {
-    display: none;
-    font-size: 28px;
-    color: white;
-    cursor: pointer;
-}
-
-@media (max-width: 768px) {
-
-    #burger {
-        display: block;
-    }
-
-    .navbar nav {
-        display: none;
-        flex-direction: column;
-        gap: 15px;
-        margin-top: 20px;
-    }
-
-    .navbar nav.show {
-        display: flex;
-    }
-}
-
-#cursor {
-    position: fixed;
-    width: 20px;
-    height: 20px;
-    background: dodgerblue;
-    border-radius: 50%;
-    pointer-events: none;
-    filter: blur(10px);
-    opacity: 0.7;
-    z-index: 9999;
-}
-
-#loader {
-    position: fixed;
-    inset: 0;
-    background: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-}
-
-.spinner {
-    width: 40px;
-    height: 40px;
-    border: 4px solid #ddd;
-    border-top: 4px solid dodgerblue;
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-    to { transform: rotate(360deg); }
-}
-
-#contact input,
-#contact textarea {
-    padding: 10px;
-    border-radius: 6px;
-    border: 1px solid #ccc;
-    font-size: 14px;
-}
-
-#contact button {
-    padding: 12px;
-    border: none;
-    background: dodgerblue;
-    color: white;
-    border-radius: 6px;
-    cursor: pointer;
-}
-
-#contact button:hover {
-    opacity: 0.8;
-}
-
-/* Mobile tap highlight */
-.card:active {
-    transform: scale(0.97);
-}
-
-.navbar nav a:active {
-    opacity: 0.6;
-}
-
-/* Remove ugly default tap highlight */
-* {
-    -webkit-tap-highlight-color: transparent;
-}
+/* PROGRESS BAR */
 
 #progress {
     position: fixed;
@@ -383,3 +118,251 @@ body.fade-out {
     background: dodgerblue;
     z-index: 99999;
 }
+
+
+/* ===================================================== */
+/* 🍎 APPLE NAVBAR (CLEAN & ISOLATED) */
+/* ===================================================== */
+
+/* Base navbar */
+.apple-navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 44px;
+    background: rgba(255,255,255,0.85);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+    z-index: 10000;
+    transition: all 0.35s ease;
+}
+
+/* Center menu */
+.apple-center {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    gap: 28px;
+}
+
+.apple-center a {
+    font-size: 13px;
+    font-weight: 400;
+    text-decoration: none;
+    color: #111;
+    opacity: 0.85;
+}
+
+.apple-center a:hover {
+    opacity: 1;
+}
+
+/* Right icons */
+.apple-right {
+    position: absolute;
+    right: 24px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+#searchIcon {
+    cursor: pointer;
+    font-size: 15px;
+}
+
+#darkBtn {
+    background: none;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* Offset body */
+body {
+    padding-top: 44px;
+}
+
+/* Dark mode */
+body.dark .apple-navbar {
+    background: rgba(18,18,18,0.9);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+body.dark .apple-center a {
+    color: white;
+}
+
+/* ===================================================== */
+/* 🍎 NAVBAR FLOATING ON SCROLL */
+/* ===================================================== */
+
+.apple-navbar.scrolled {
+    top: 12px;
+    width: 90%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 14px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+}
+
+/* ===================================================== */
+/* 🍎 APPLE SEARCH DROPDOWN */
+/* ===================================================== */
+
+/* Apple dropdown search (NOT fullscreen) */
+
+#searchOverlay {
+    position: absolute;
+    top: 44px;
+    left: 0;
+    width: 100%;
+    height: 0;
+    overflow: hidden;
+    background: rgba(255,255,255,.95);
+    transition: height .3s ease;
+    z-index: 999;
+}
+
+#searchOverlay.active {
+    height: 120px;
+}
+
+.search-box {
+    max-width: 720px;
+    margin: 30px auto 0;
+    padding: 0 20px;
+}
+
+/* dark */
+body.dark #searchOverlay {
+    background: rgba(18,18,18,.95);
+}
+
+
+/* ================= DARK MODE GLOBAL ================= */
+
+body.dark {
+    background-color: #121212;
+    color: #eaeaea;
+}
+
+/* text default */
+body.dark p,
+body.dark h1,
+body.dark h2,
+body.dark h3,
+body.dark h4,
+body.dark h5,
+body.dark h6 {
+    color: #eaeaea;
+}
+
+/* cards */
+body.dark .card {
+    background: #1e1e1e;
+    border-color: #333;
+}
+
+body.dark .card p {
+    color: #cfcfcf;
+}
+
+/* content grid background (optional) */
+body.dark .content-grid {
+    background: #121212;
+}
+
+/* form */
+body.dark input,
+body.dark textarea {
+    background: #1e1e1e;
+    color: #fff;
+    border: 1px solid #333;
+}
+
+body.dark button {
+    background: #2a2a2a;
+    color: #fff;
+}
+
+/* progress bar tetap kelihatan */
+body.dark #progress {
+    background: dodgerblue;
+}
+
+/* ===== FINAL FLOATING AVATAR ===== */
+
+.avatar-wrap {
+  position: fixed !important;
+  right: 20px !important;
+  bottom: 20px !important;
+  z-index: 99999 !important;
+}
+
+.avatar-img {
+  width: 52px !important;
+  height: 52px !important;
+  border-radius: 50% !important;
+  object-fit: cover !important;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(0,0,0,.3);
+}
+
+.avatar-tooltip {
+  position: absolute;
+  right: 65px;
+  bottom: 12px;
+  background: #111;
+  color: white;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity .2s ease;
+}
+
+body.dark .avatar-tooltip {
+  background: #eee;
+  color: #111;
+}
+
+/* ===== AVATAR GREEN RING ===== */
+
+.avatar-img {
+  width: 52px !important;
+  height: 52px !important;
+  border-radius: 50% !important;
+  object-fit: cover !important;
+  cursor: pointer;
+  border: 3px solid #00ff6a !important;
+  box-shadow: 0 0 0 0 rgba(0,255,106,0);
+  transition: box-shadow .3s ease;
+}
+
+/* ===== PULSE ONLY ON HOVER ===== */
+
+.avatar-img:hover {
+  animation: avatarPulse 1.8s infinite;
+}
+
+@keyframes avatarPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(0,255,106,.8);
+  }
+  70% {
+    box-shadow: 0 0 0 14px rgba(0,255,106,0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(0,255,106,0);
+  }
+}
+
+
