@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>CV - Bayu</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      .cv-wrapper {
+        padding: 40px;
+        height: calc(100vh - 80px);
+      }
+
+      .cv-frame {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- NAVBAR -->
+    <header class="apple-navbar">
+      <div class="apple-center">
+        <a href="index.html#home">Home</a>
+        <a href="about.html">About</a>
+        <a href="index.html#projects">Projects</a>
+        <a href="index.html#contact">Contact</a>
+      </div>
+
+      <div class="apple-right">
+        <span id="searchIcon">🔍</span>
+        <button id="darkBtn">🌙</button>
+      </div>
+    </header>
+
+    <section class="cv-hero">
+      <img src="Photos/cv-header.png" alt="CV Header" />
+    </section>
+
+    <!-- SEARCH OVERLAY -->
+    <div id="searchOverlay">
+      <div class="search-box">
+        <input type="text" id="appleSearchInput" placeholder="Search…" />
+      </div>
+    </div>
+
+    <div class="about-wrap">
+      <section class="about-section"></section>
+
+      <div class="cv-wrapper">
+        <iframe class="cv-frame" src="Document/CV.pdf"> </iframe>
+      </div>
+    </div>
+
+    <script src="script.js" defer></script>
+  </body>
+</html>

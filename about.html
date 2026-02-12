@@ -72,6 +72,8 @@
         padding: 60px 20px;
       }
 
+      /* ABOUT SECTION */
+
       .about-section {
         margin-bottom: 40px;
       }
@@ -94,6 +96,72 @@
             0 5px 15px rgba(0, 0, 0, 0.2),
             0 0 0 0 rgba(0, 230, 118, 0);
         }
+      }
+
+      .about-section h2 {
+        font-size: 28px;
+        margin-bottom: 15px;
+      }
+
+      .about-section p {
+        line-height: 1.9;
+        font-size: 16px;
+        color: #444;
+      }
+
+      .about-highlight {
+        font-size: 18px;
+        font-weight: 500;
+        margin-bottom: 20px;
+        color: #111;
+      }
+
+      .about-block {
+        background: #f7f7f7;
+        padding: 30px;
+        border-radius: 12px;
+        margin-top: 30px;
+      }
+
+      .about-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 15px;
+        margin-top: 20px;
+      }
+
+      .about-list div {
+        background: white;
+        padding: 15px;
+        border-radius: 8px;
+        box-shadow: 0 5px 12px rgba(0, 0, 0, 0.05);
+      }
+
+      /* DARK MODE - ABOUT */
+
+      body.dark .about-block {
+        background: #1e1e1e;
+        color: #eee;
+      }
+
+      body.dark .about-section p {
+        color: #ccc;
+      }
+
+      body.dark .about-highlight {
+        color: #fff;
+      }
+
+      body.dark .about-list div {
+        background: #1e1e1e;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+      }
+
+      .about-block,
+      .about-list div {
+        transition:
+          background 0.3s ease,
+          color 0.3s ease;
       }
 
       /* MOBILE */
@@ -125,6 +193,7 @@
         <a href="about.html">About</a>
         <a href="index.html#projects">Projects</a>
         <a href="index.html#contact">Contact</a>
+        <a href="cv.html" class="nav-link">CV</a>
       </div>
 
       <div class="apple-right">
@@ -149,24 +218,180 @@
       <div class="about-section reveal">
         <h2>Hello 👋</h2>
         <p class="about-highlight">
-          Saya Bayu — seorang IT Support yang fokus membantu orang, menjaga
-          sistem tetap stabil, dan memastikan teknologi bekerja seghjghgjg]
-          asdfasdfsdfasdfasdfasdfasdfasdfasdfasdf
-          asdfasdfsdfasdfasdfasdfasdfasdfasdfasdfasdf
-          asdfasdfsdfasdfasdfasdfasdfasdfasdfasdf
-          asdfasdfsdfasdfasdfasdfasdfasdfasdfasdf
-          asdfasdfsdfasdfasdfasdfasdfasdfasdfasdfasdf
-          asdfasdfsdfasdfasdfasdfasdfasdfasdfasdf
-          asdfasdfsdfasdfasdfasdfasdfasdfasdfasdf
-          asdfasdfsdfasdfasdfasdfasdfasdfasdfasdfasdf
-          asdfasdfsdfasdfasdfasdfasdfasdfasdfasdf
-          asdfasdfsdfasdfasdfasdfasdfasdfasdfasdf
-          asdfasdfsdfasdfasdfasdfasdfasdfasdfasdfasdf
-          asdfasdfsdfasdfasdfasdfasdfasdfasdfasdf
-          asdfasdfsdfasdfasdfasdfasdfasdfasdfasdf
-          asdfasdfsdfasdfasdfasdfasdfasdfasdfasdfasdf
-          asdfasdfsdfasdfasdfasdfasdfasdfasdfasdf
+          IT Support professional focused on system stability, user support, and
+          reliable technology.
         </p>
+        <div class="about-list">
+          <div>🛠 Hardware & Software Support</div>
+          <div>🌐 Network Troubleshooting</div>
+          <div>💻 Windows & Linux</div>
+          <div>🔐 Basic Cybersecurity</div>
+          <div>📋 Documentation</div>
+          <div>🤝 User Communication</div>
+        </div>
+
+        <div class="about-block">
+          <p style="text-align: justify">
+            Iam Bayu — an IT Support professional focused on helping people,
+            keeping systems stable, and ensuring technology works as intended.
+            To me, technology is not merely hardware, software, or lines of
+            code. It is a powerful tool that enables people to work efficiently,
+            communicate seamlessly, and achieve meaningful results.
+          </p>
+        </div>
+
+        <div class="about-block">
+          <p style="text-align: justify">
+            My role is to bridge the gap between humans and technology, ensuring
+            both operate in harmony without unnecessary disruption. From the
+            beginning of my career, I have believed that IT Support is not only
+            about fixing technical issues, but also about building trust,
+            providing reassurance, and delivering solutions that genuinely help
+            users. Every restored system, every resolved network issue, and
+            every satisfied user represents success in my work.
+          </p>
+        </div>
+
+        <div class="about-block">
+          <p style="text-align: justify">
+            I started my journey in IT driven by curiosity about how computers,
+            operating systems, and networks function. That curiosity gradually
+            evolved into a passion, and eventually into a profession. Along the
+            way, I learned that being an IT Support professional means facing
+            new challenges every day — from basic software installations to
+            complex troubleshooting scenarios. No two days are exactly alike,
+            and that dynamic nature is what makes this field both challenging
+            and rewarding. As an IT Support specialist, I work on the front line
+            of technology services.
+          </p>
+        </div>
+
+        <div class="about-block">
+          <p style="text-align: justify">
+            I am often the first person contacted when problems arise and the
+            last to ensure everything is restored and functioning properly. This
+            responsibility requires technical precision, patience, and strong
+            communication skills. I must be able to translate complex technical
+            concepts into simple language while maintaining focus on the
+            underlying systems. My daily responsibilities include managing
+            hardware such as desktop computers, laptops, printers, and
+            networking devices, as well as handling software installations,
+            operating system configuration, application support, and system
+            maintenance.
+          </p>
+        </div>
+
+        <div class="about-block">
+          <p style="text-align: justify">
+            I am experienced in troubleshooting hardware failures, resolving
+            software conflicts, and diagnosing network connectivity issues. I
+            also perform system updates, backups, and routine checks to ensure
+            optimal performance and reliability. I strongly believe in proactive
+            IT support. Rather than waiting for problems to occur, I actively
+            work to prevent them. This includes monitoring system health,
+            applying updates, verifying backups, and identifying potential risks
+            before they impact users. My goal is always to minimize downtime and
+            ensure business operations continue smoothly.
+          </p>
+        </div>
+
+        <div class="about-block">
+          <p style="text-align: justify">
+            One of my core strengths is empathy toward users. Technology issues
+            can be stressful, especially when work depends on it. I approach
+            every support request with patience and understanding, listening
+            carefully to user concerns and providing clear, practical solutions.
+            I strive to be approachable and supportive, creating a positive
+            experience even in challenging situations.
+          </p>
+        </div>
+
+        <div class="about-block">
+          <p style="text-align: justify">
+            In today’s digital workplace, IT Support plays a critical role in
+            productivity and operational continuity. Stable systems enable
+            efficient workflows. Secure networks protect sensitive data.
+            Responsive technical support saves time and reduces frustration. I
+            take this responsibility seriously and approach my role with
+            dedication and professionalism. Continuous learning is a key part of
+            my professional mindset. The IT landscape evolves rapidly, and I
+            actively stay updated with new technologies, operating systems,
+            troubleshooting tools, and basic cybersecurity practices. I view
+            every technical challenge as an opportunity to grow and every
+            resolved issue as valuable experience. Documentation is another
+            important aspect of my work.
+          </p>
+        </div>
+
+        <div class="about-block">
+          <p style="text-align: justify">
+            I carefully record system configurations, changes, and
+            troubleshooting steps. Proper documentation improves efficiency,
+            supports knowledge sharing, and ensures continuity when working with
+            other team members. I am comfortable working independently or as
+            part of a team. In collaborative environments, I aim to be reliable,
+            supportive, and open to feedback. I value teamwork because IT
+            success is rarely achieved alone — it is the result of shared
+            knowledge and collective effort. Throughout my experience, I have
+            also participated in system setups and onboarding processes,
+            including preparing new workstations, configuring networks,
+            installing applications, and assisting users in adapting to new
+            environments. These projects require careful planning and execution
+            to ensure smooth transitions, and I enjoy contributing to building
+            organized and efficient IT infrastructures from the ground up.
+          </p>
+        </div>
+
+        <div class="about-block">
+          <p style="text-align: justify">
+            I understand the importance of information security, even at the
+            support level. I apply basic security practices such as access
+            control, password management, system updates, and user awareness
+            regarding digital threats. Cybersecurity is a shared responsibility,
+            and IT Support plays a vital role in establishing that awareness. I
+            am accustomed to working under pressure, especially during system
+            outages or urgent support requests. In these situations, I remain
+            calm, prioritize tasks effectively, and focus on delivering
+            practical solutions while maintaining professionalism.
+          </p>
+        </div>
+
+        <div class="about-block">
+          <p style="text-align: justify">
+            In addition to IT support, I have an interest in frontend web
+            technologies and digital systems, which allows me to better
+            understand broader IT ecosystems and collaborate effectively with
+            developers or technical teams when issues span multiple domains. For
+            me, IT Support is not a temporary role but a long-term career path.
+            I take pride in contributing to technological environments that
+            empower people to perform their best work. My motivation comes from
+            knowing that my efforts directly impact productivity, efficiency,
+            and user satisfaction. I consistently aim to deliver high-quality
+            service to colleagues, managers, and end users. Their success
+            reflects my own. When systems operate reliably and users can focus
+            on their responsibilities without technical interruptions, I know I
+            have added real value. Looking ahead, my goal is to continue growing
+            as a dependable, adaptable, and solution-oriented IT Support
+            professional.
+          </p>
+        </div>
+
+        <div class="about-block">
+          <p style="text-align: justify">
+            I plan to deepen my knowledge of systems administration, networking,
+            and security while strengthening my communication and service
+            skills. I aspire to become not only a technically competent IT
+            Support specialist, but also a trusted technology partner. I believe
+            that the best technology is invisible — it works smoothly in the
+            background, supporting people without drawing attention to itself.
+            And behind every well-functioning system is an IT Support
+            professional committed to excellence. That is who I am — Bayu, an IT
+            Support professional dedicated to helping others, learning
+            continuously, and evolving alongside technology. With a balance of
+            technical expertise, user-focused service, and professional
+            integrity, I move forward in my IT career one solution at a time.
+          </p>
+        </div>
       </div>
       <script src="script.js" defer></script>
     </div>
