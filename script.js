@@ -25,19 +25,20 @@ window.addEventListener("scroll", () => {
 
 
     /* BLUR + STAGGER REVEAL */
-    const reveals = document.querySelectorAll(".reveal");
+ const reveals = document.querySelectorAll(".reveal");
 
-    const observer = new IntersectionObserver(entries => {
-        entries.forEach((entry, index) => {
-            if (entry.isIntersecting) {
-                setTimeout(() => {
-                    entry.target.classList.add("show");
-                }, index * 150);
-            }
-        });
-    }, { threshold: 0.2 });
+const observer = new IntersectionObserver(entries => {
+    entries.forEach((entry, index) => {
+        if (entry.isIntersecting) {
+            setTimeout(() => {
+                entry.target.classList.add("show");
+            }, index * 120);
+        }
+    });
+}, { threshold: 0.2 });
 
-    reveals.forEach(el => observer.observe(el));
+reveals.forEach(el => observer.observe(el));
+
 
     /* PARALLAX HEADER */
     window.addEventListener("scroll", () => {

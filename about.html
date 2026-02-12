@@ -123,11 +123,20 @@
         margin-top: 30px;
       }
 
-      .about-list {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-        gap: 15px;
-        margin-top: 20px;
+      .about-list div {
+        background: white;
+        padding: 15px;
+        border-radius: 8px;
+        box-shadow: 0 5px 12px rgba(0, 0, 0, 0.05);
+        cursor: pointer;
+        transition:
+          transform 0.25s ease,
+          box-shadow 0.25s ease;
+      }
+
+      .about-list div:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 12px 25px rgba(0, 0, 0, 0.18);
       }
 
       .about-list div {
@@ -215,21 +224,25 @@
       </div>
     </section>
     <div class="about-wrap">
-      <div class="about-section reveal">
+      <div class="about-section">
         <h2>Hello 👋</h2>
         <p class="about-highlight">
           IT Support professional focused on system stability, user support, and
           reliable technology.
         </p>
-        <div class="about-list">
-          <div>🛠 Hardware & Software Support</div>
-          <div>🌐 Network Troubleshooting</div>
+        <div class="about-list reveal">
+          <div onclick="location.href = 'detail.html'">
+            🛠 Hardware & Software Support
+          </div>
+
+          <div onclick="location.href = 'detail.html'">
+            Network Troubleshooting
+          </div>
           <div>💻 Windows & Linux</div>
           <div>🔐 Basic Cybersecurity</div>
           <div>📋 Documentation</div>
           <div>🤝 User Communication</div>
         </div>
-
         <div class="about-block">
           <p style="text-align: justify">
             Iam Bayu — an IT Support professional focused on helping people,
